@@ -12,7 +12,7 @@ def parseLine(line):
 
 # try-finally block to make sure that sc.shut() is called even if an exception occurs in our code preventing resource leaks in case of failures
 try:
-    lines = sc.textFile("file:///SparkCourse/SampleData/1800.csv")
+    lines = sc.textFile("file:///SparkCourse/pySpark/SampleData/1800.csv")
     parsedLines = lines.map(parseLine)
     minTemps = parsedLines.filter(lambda x: "TMIN" in x[1])
     stationTemps = minTemps.map(lambda x: (x[0], x[2]))

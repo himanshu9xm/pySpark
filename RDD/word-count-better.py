@@ -9,7 +9,7 @@ def normaliseWords(text):
     return re.compile(r'\W+', re.UNICODE).split(text.lower())
 
 try:
-    input = sc.textFile("file:///SparkCourse/SampleData/book.txt")
+    input = sc.textFile("file:///SparkCourse/pySpark/SampleData/book.txt")
     words = input.flatMap(normaliseWords)
     wordCounts = words.countByValue()
     print(type(wordCounts))
