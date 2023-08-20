@@ -10,7 +10,7 @@ def parseLine(line):
     return (stationID, temperature)
 
 try:
-    lines = sc.textFile("file:///SparkCourse/SampleData/1800.csv")
+    lines = sc.textFile("file:///SparkCourse/pySpark/SampleData/1800.csv")
     parsedLines = lines.map(parseLine)
     stationCount = parsedLines.mapValues(lambda x: (x,1))
     totalTemp = stationCount.reduceByKey(lambda x,y: ((x[0] + y[0]), (x[1] + y[1])))

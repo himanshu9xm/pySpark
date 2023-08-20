@@ -17,7 +17,7 @@ def parseLine(line):
 
 try:
 
-    lines = spark.sparkContext.textFile("file:///SparkCourse/SampleData/fakefriends.csv")
+    lines = spark.sparkContext.textFile("file:///SparkCourse/pySpark/SampleData/fakefriends.csv")
     people = lines.map(parseLine)
 
     schemaPeople = spark.createDataFrame(people).cache()

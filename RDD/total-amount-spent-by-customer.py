@@ -10,7 +10,7 @@ def parseLine(line):
     return (customerID, amount)
 
 try:
-    input = sc.textFile("file:///SparkCourse/SampleData/customer-orders.csv")
+    input = sc.textFile("file:///SparkCourse/pySpark/SampleData/customer-orders.csv")
 
     parsedLines = input.map(parseLine)
     totAmount = parsedLines.reduceByKey(lambda x,y : x + y)
